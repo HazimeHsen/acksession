@@ -1,7 +1,6 @@
 import { Button } from 'components/Button';
 import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
-import { Footer } from 'components/Footer';
 import { Heading } from 'components/Heading';
 import { Icon } from 'components/Icon';
 import { Input } from 'components/Input';
@@ -33,7 +32,7 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      const response = await fetch(`/api/message`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/message`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
