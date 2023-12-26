@@ -153,7 +153,6 @@ export const Navbar = () => {
         });
       } else {
         setNavbarStyle({
-          backgroundColor: 'transparent',
           backdropFilter: 'blur(0)',
         });
       }
@@ -183,18 +182,16 @@ export const Navbar = () => {
                 src="/static/acksession_logo_white.png"
                 objectFit="contain"
                 width={150}
-                height={45}
+                height={60}
                 alt="logo"
-                className={styles.logoPng}
               />
             ) : (
               <Image
                 src="/static/acksession_logo.png"
                 objectFit="contain"
                 width={150}
-                height={45}
+                height={60}
                 alt="logo"
-                className={styles.logoPng}
               />
             )}
           </a>
