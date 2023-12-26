@@ -7,7 +7,6 @@
   justify-items: center;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   width: 100%;
 
   @media (--mediaMobile) {
@@ -18,11 +17,10 @@
 .form {
   grid-area: 1 / 1;
   max-width: var(--maxWidthS);
+  padding: var(--space5XL) 0 var(--spaceM);
   width: 100%;
-  padding: var(--space2XL) 0;
 
   @media (--mediaMobile) {
-    padding: var(--space5XL) 0 var(--space2XL);
     align-self: flex-start;
   }
 }

@@ -33,9 +33,8 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/message`, {
+      const response = await fetch(`/api/message`, {
         method: 'POST',
-        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -176,7 +175,6 @@ export const Contact = () => {
           </div>
         )}
       </Transition>
-      <Footer className={styles.footer} />
     </Section>
   );
 };

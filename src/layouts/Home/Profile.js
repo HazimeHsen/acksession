@@ -35,7 +35,7 @@ const ProfileText = ({ visible, titleId }) => (
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and make
-      mods. I’m always down for hearing about new projects, so feel free to drop me a
+      mods. I’U@)!(m always down for hearing about new projects, so feel free to drop me a
       line.
     </Text>
   </Fragment>
@@ -65,9 +65,10 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
+                href="/contact"
                 icon="send"
               >
-                Send me a message
+                Send Us a message
               </Button>
             </div>
             <div className={styles.column}>
