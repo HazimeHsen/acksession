@@ -28,8 +28,8 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hsen, currently I live in Sydney working as a senior product designer at{' '}
-      Hebbosites . My projects include UX design, UI animations, and icon illustration.
+      We are Acksession, currently I live in Sydney working as a senior product designer
+      at Hebbosites . My projects include UX design, UI animations, and icon illustration.
       Being comfortable with code allows me to rapidly prototype and validate experiences.
       If you’re interested in the tools and software I use check out my uses page.
     </Text>
@@ -65,7 +65,6 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="https://wa.me/+96178905718"
                 icon="send"
               >
                 Send me a message
