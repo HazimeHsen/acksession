@@ -1,4 +1,5 @@
 .navbar {
+  transition: all 0.3s ;
   width: 100%;
   display: flex;
   align-items: center;
@@ -7,6 +8,14 @@
   top: 0;
   left: 0;
   z-index: var(--zIndex4);
+  @media (--mediaLaptop) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  @media (--mediaMobile) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 .container {
   width: 90%;
@@ -18,10 +27,20 @@
     width: 95%;
   }
 }
+.logoPng{
+  
+  @media (--mediaMobile) {
+    width: 100px;
+    height: 50px;
+  }
+  @media (--mediaLaptop) {
+    width: 150px;
+    height: 60px;
+  }
+}
 .linksContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .mobileContainer {
@@ -36,14 +55,10 @@
 }
 
 .logo {
+  position: relative;
   display: flex;
   position: relative;
-  padding: var(--spaceS) var(--spaceS) var(--spaceL);
   z-index: var(--zIndex2);
-
-  @media (--mediaMobile) {
-    padding-bottom: var(--spaceS);
-  }
 }
 
 .nav {

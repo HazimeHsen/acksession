@@ -1,5 +1,3 @@
-import { Icon } from 'components/Icon';
-import { Monogram } from 'components/Monogram';
 import { useTheme } from 'components/ThemeProvider';
 import { tokens } from 'components/ThemeProvider/theme';
 import { Transition } from 'components/Transition';
@@ -7,11 +5,11 @@ import { useAppContext, useScrollToHash, useWindowSize } from 'hooks';
 import RouterLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-import { cssProps, media, msToNum, numToMs } from 'utils/style';
+import { cssProps, msToNum, numToMs } from 'utils/style';
 import { NavToggle } from './NavToggle';
 import styles from './Navbar.module.css';
 import { ThemeToggle } from './ThemeToggle';
-import { navLinks, socialLinks } from './navData';
+import { navLinks } from './navData';
 import Image from 'next/image';
 
 export const Navbar = () => {
@@ -138,9 +136,40 @@ export const Navbar = () => {
     handleNavItemClick(event);
     if (menuOpen) dispatch({ type: 'toggleMenu' });
   };
+  const [navbarStyle, setNavbarStyle] = useState({
+    backdropFilter: 'blur(0)', // Initial blur value
+  });
+
+  // Handle background color change on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const threshold = 50; // Adjust this value as needed
+
+      // Change background color and blur when scrolling down
+      if (scrollY > threshold) {
+        setNavbarStyle({
+          backdropFilter: 'blur(10px)', // Adjust the blur value as needed
+        });
+      } else {
+        setNavbarStyle({
+          backgroundColor: 'transparent',
+          backdropFilter: 'blur(0)',
+        });
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // ... (previous code)
 
   return (
-    <header className={styles.navbar} ref={headerRef}>
+    <header className={styles.navbar} ref={headerRef} style={navbarStyle}>
       <div className={styles.container}>
         <RouterLink href={route === '/' ? '/#intro' : '/'} scroll={false}>
           <a
@@ -154,16 +183,18 @@ export const Navbar = () => {
                 src="/static/acksession_logo_white.png"
                 objectFit="contain"
                 width={150}
-                height={60}
+                height={45}
                 alt="logo"
+                className={styles.logoPng}
               />
             ) : (
               <Image
                 src="/static/acksession_logo.png"
                 objectFit="contain"
                 width={150}
-                height={60}
+                height={45}
                 alt="logo"
+                className={styles.logoPng}
               />
             )}
           </a>
