@@ -30,4 +30,16 @@ module.exports = {
 
     return config;
   },
+  exportPathMap: async function (defaultPathMap) {
+    const pathsWithoutApiRoutes = Object.keys(defaultPathMap).filter(
+      path => !path.startsWith('/api/')
+    );
+
+    const modifiedPathMap = pathsWithoutApiRoutes.reduce((pathMap, path) => {
+      pathMap[path] = defaultPathMap[path];
+      return pathMap;
+    }, {});
+
+    return modifiedPathMap;
+  },
 };
