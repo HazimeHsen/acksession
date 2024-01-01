@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { media } from 'utils/style';
 import styles from './ProjectSummary.module.css';
 import { Image } from 'components/Image';
+import { Button } from 'components/Button';
 
 export const ProjectSummary = ({
   id,
@@ -18,6 +19,8 @@ export const ProjectSummary = ({
   description,
   alternate,
   model,
+  buttonText,
+  buttonLink,
   ...rest
 }) => {
   const [focused, setFocused] = useState(false);
@@ -51,6 +54,11 @@ export const ProjectSummary = ({
       <Text className={styles.description} data-visible={visible} as="p">
         {description}
       </Text>
+      <div className={styles.button} data-visible={visible}>
+        <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
+          {buttonText}
+        </Button>
+      </div>
     </div>
   );
 

@@ -1,21 +1,18 @@
-import gamestackTexture2Large from 'assets/gamestack-list-large.jpg';
-import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
-import gamestackTexture2 from 'assets/gamestack-list.jpg';
-import gamestackTextureLarge from 'assets/gamestack-login-large.jpg';
-import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
-import gamestackTexture from 'assets/gamestack-login.jpg';
-import sliceTextureLarge from 'assets/slice-app-large.jpg';
-import sliceTexturePlaceholder from 'assets/slice-app-placeholder.jpg';
-import sliceTexture from 'assets/slice-app.jpg';
-import sprTextureLarge from 'assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from 'assets/spr-lesson-builder-dark.jpg';
+import one from 'assets/1.jpg';
+import two from 'assets/2.jpg';
+import three from 'assets/3.jpg';
+import four from 'assets/4.jpg';
+import five from 'assets/5.jpg';
+import six from 'assets/6.jpg';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
 import { Profile } from 'layouts/Home/Profile';
 import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
+import { Heading } from 'components/Heading';
+import { theme } from 'components/ThemeProvider';
+import { Transition } from 'components/Transition';
 
 const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
 
@@ -26,10 +23,23 @@ export const Home = () => {
   const projectOne = useRef();
   const projectTwo = useRef();
   const projectThree = useRef();
+  const projectFour = useRef();
+  const projectFive = useRef();
+  const projectSix = useRef();
+  const titleRef = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [
+      intro,
+      projectOne,
+      projectTwo,
+      projectThree,
+      projectFour,
+      projectFive,
+      projectSix,
+      details,
+    ];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -66,27 +76,45 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
-      <Meta
-        title="Designer + Developer"
-        description="Design portfolio of Hamish Williams — a product designer working on web & mobile
-          apps with a focus on motion, experience design, and accessibility."
-      />
+      <Meta title="Acksession" description="" />
       <Intro
         id="intro"
         sectionRef={intro}
         disciplines={disciplines}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
+
+      <section ref={titleRef}>
+        <Transition
+          in={visibleSections.includes(titleRef.current)}
+          key={theme.themeId}
+          timeout={3000}
+        >
+          {visible => (
+            <Heading
+              level={3}
+              align="center"
+              weight="medium"
+              className={styles.heading}
+              data-visible={visible}
+            >
+              Available Sports
+            </Heading>
+          )}
+        </Transition>
+      </section>
       <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
+        buttonText="View More"
+        buttonLink="/sports"
         index={1}
         title="Designing the future of education"
         description="Designing a platform to help educators build better online courseware"
         model={{
-          srcSet: [sprTexture, sprTextureLarge],
-          placeholder: sprTexturePlaceholder,
+          srcSet: [one, one],
+          placeholder: one,
         }}
       />
       <ProjectSummary
@@ -94,24 +122,72 @@ export const Home = () => {
         alternate
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
+        buttonText="View More"
+        buttonLink="/sports"
         index={2}
         title="Video game progress tracking"
         description="Design and development for a video game tracking app built in React Native"
         model={{
-          srcSet: [sliceTexture, sliceTextureLarge],
-          placeholder: sliceTexturePlaceholder,
+          srcSet: [two, two],
+          placeholder: two,
         }}
       />
       <ProjectSummary
         id="project-3"
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
+        buttonText="View More"
+        buttonLink="/sports"
         index={3}
         title="Biomedical image collaboration"
         description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
         model={{
-          srcSet: [sliceTexture, sliceTextureLarge],
-          placeholder: sliceTexturePlaceholder,
+          srcSet: [three, three],
+          placeholder: three,
+        }}
+      />
+      <ProjectSummary
+        id="project-4"
+        alternate
+        sectionRef={projectFour}
+        visible={visibleSections.includes(projectFour.current)}
+        buttonText="View More"
+        buttonLink="/sports"
+        index={4}
+        title="Biomedical image collaboration"
+        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        model={{
+          srcSet: [four, four],
+          placeholder: four,
+        }}
+      />
+      <ProjectSummary
+        id="project-5"
+        sectionRef={projectFive}
+        visible={visibleSections.includes(projectFive.current)}
+        buttonText="View More"
+        buttonLink="/sports"
+        index={5}
+        title="Biomedical image collaboration"
+        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        model={{
+          srcSet: [five, five],
+          placeholder: five,
+        }}
+      />
+      <ProjectSummary
+        id="project-6"
+        alternate
+        sectionRef={projectSix}
+        visible={visibleSections.includes(projectSix.current)}
+        buttonText="View More"
+        buttonLink="/sports"
+        index={6}
+        title="Biomedical image collaboration"
+        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        model={{
+          srcSet: [six, six],
+          placeholder: six,
         }}
       />
       <Profile
