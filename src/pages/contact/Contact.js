@@ -32,7 +32,7 @@ export const Contact = () => {
     try {
       setSending(true);
 
-      const response = await fetch(`/api/message`, {
+      const response = await fetch(`/api/message/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
