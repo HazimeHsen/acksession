@@ -4,9 +4,10 @@
 
 .heading {
   margin-bottom: 50px;
-  @media (--mediaMobile) {
-    margin-bottom: 50px;
-  }
+}
+.heading2 {
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .text {

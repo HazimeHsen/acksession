@@ -20,6 +20,12 @@ export const Home = () => {
   const projectFour = useRef();
   const projectFive = useRef();
   const projectSix = useRef();
+  const projectSeven = useRef();
+  const projectEight = useRef();
+  const projectNine = useRef();
+  const projectTen = useRef();
+  const projectEleven = useRef();
+  const projectTwelve = useRef();
   const titleRef = useRef();
 
   useEffect(() => {
@@ -30,6 +36,12 @@ export const Home = () => {
       projectFour,
       projectFive,
       projectSix,
+      projectSeven,
+      projectEight,
+      projectNine,
+      projectTen,
+      projectEleven,
+      projectTwelve,
     ];
 
     const sectionObserver = new IntersectionObserver(
@@ -154,14 +166,14 @@ export const Home = () => {
         }}
       />
 
-      <Heading level={3} align="center" weight="medium" className={styles.heading}>
+      <Heading level={3} align="center" weight="medium" className={styles.heading2}>
         Team Sports
       </Heading>
 
       <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
+        id="project-7"
+        sectionRef={projectSeven}
+        visible={visibleSections.includes(projectSeven.current)}
         index={1}
         title="Designing the future of education"
         description="Designing a platform to help educators build better online courseware"
@@ -171,10 +183,10 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-2"
+        id="project-8"
         alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
+        sectionRef={projectEight}
+        visible={visibleSections.includes(projectEight.current)}
         index={2}
         title="Video game progress tracking"
         description="Design and development for a video game tracking app built in React Native"
@@ -184,9 +196,9 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
+        id="project-9"
+        sectionRef={projectNine}
+        visible={visibleSections.includes(projectNine.current)}
         index={3}
         title="Biomedical image collaboration"
         description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
@@ -196,10 +208,10 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-4"
+        id="project-10"
         alternate
-        sectionRef={projectFour}
-        visible={visibleSections.includes(projectFour.current)}
+        sectionRef={projectTen}
+        visible={visibleSections.includes(projectTen.current)}
         index={4}
         title="Biomedical image collaboration"
         description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
@@ -209,9 +221,9 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-5"
-        sectionRef={projectFive}
-        visible={visibleSections.includes(projectFive.current)}
+        id="project-11"
+        sectionRef={projectEleven}
+        visible={visibleSections.includes(projectEleven.current)}
         index={5}
         title="Biomedical image collaboration"
         description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
@@ -221,10 +233,10 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-6"
+        id="project-12"
         alternate
-        sectionRef={projectSix}
-        visible={visibleSections.includes(projectSix.current)}
+        sectionRef={projectTwelve}
+        visible={visibleSections.includes(projectTwelve.current)}
         index={6}
         title="Biomedical image collaboration"
         description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
