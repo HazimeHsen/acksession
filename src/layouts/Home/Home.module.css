@@ -3,9 +3,20 @@
 }
 
 .heading {
-  margin-bottom: 50px;
-  @media (--mediaMobile) {
-    margin-bottom: 50px;
+  transition-property: opacity;
+  transition-timing-function: var(--bezierFastoutSlowin);
+  transition-duration: var(--durationXL);
+  transition-delay: var(--durationL);
+  opacity: 0;
+
+  @media (--mediaUseMotion) {
+    transition-property: transform, opacity;
+    transform: translate3d(0, var(--spaceL), 0);
+  }
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
   }
 }
 

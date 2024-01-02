@@ -11,8 +11,7 @@ import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import { Heading } from 'components/Heading';
-import { theme } from 'components/ThemeProvider';
-import { Transition } from 'components/Transition';
+import { Sports } from './Sports';
 
 const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
 
@@ -21,25 +20,12 @@ export const Home = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectOne = useRef();
-  const projectTwo = useRef();
-  const projectThree = useRef();
-  const projectFour = useRef();
-  const projectFive = useRef();
-  const projectSix = useRef();
+  const sports = useRef();
   const titleRef = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [
-      intro,
-      projectOne,
-      projectTwo,
-      projectThree,
-      projectFour,
-      projectFive,
-      projectSix,
-      details,
-    ];
+    const sections = [intro, titleRef, sports, projectOne, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -85,24 +71,23 @@ export const Home = () => {
       />
 
       <section ref={titleRef}>
-        <Transition
-          in={visibleSections.includes(titleRef.current)}
-          key={theme.themeId}
-          timeout={3000}
+        <Heading
+          level={3}
+          align="center"
+          weight="medium"
+          className={styles.heading}
+          data-visible={visibleSections.includes(titleRef.current)}
         >
-          {visible => (
-            <Heading
-              level={3}
-              align="center"
-              weight="medium"
-              className={styles.heading}
-              data-visible={visible}
-            >
-              Available Sports
-            </Heading>
-          )}
-        </Transition>
+          Available Sports
+        </Heading>
       </section>
+
+      <Sports
+        id="sport1"
+        sectionRef={sports}
+        visible={visibleSections.includes(sports.current)}
+      />
+
       <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
@@ -117,79 +102,7 @@ export const Home = () => {
           placeholder: one,
         }}
       />
-      <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        model={{
-          srcSet: [two, two],
-          placeholder: two,
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        model={{
-          srcSet: [three, three],
-          placeholder: three,
-        }}
-      />
-      <ProjectSummary
-        id="project-4"
-        alternate
-        sectionRef={projectFour}
-        visible={visibleSections.includes(projectFour.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={4}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        model={{
-          srcSet: [four, four],
-          placeholder: four,
-        }}
-      />
-      <ProjectSummary
-        id="project-5"
-        sectionRef={projectFive}
-        visible={visibleSections.includes(projectFive.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={5}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        model={{
-          srcSet: [five, five],
-          placeholder: five,
-        }}
-      />
-      <ProjectSummary
-        id="project-6"
-        alternate
-        sectionRef={projectSix}
-        visible={visibleSections.includes(projectSix.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={6}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        model={{
-          srcSet: [six, six],
-          placeholder: six,
-        }}
-      />
+
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
