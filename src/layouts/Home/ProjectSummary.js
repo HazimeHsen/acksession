@@ -55,9 +55,11 @@ export const ProjectSummary = ({
         {description}
       </Text>
       <div className={styles.button} data-visible={visible}>
-        <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
-          {buttonText}
-        </Button>
+        {buttonLink && buttonText ? (
+          <Button iconHoverShift href={buttonLink} iconEnd="arrowRight">
+            {buttonText}
+          </Button>
+        ) : null}
       </div>
     </div>
   );
