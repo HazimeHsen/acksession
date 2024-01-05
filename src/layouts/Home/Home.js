@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import { Heading } from 'components/Heading';
 import { Sports } from './Sports';
+import About from './About';
 
 const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
 
@@ -23,9 +24,10 @@ export const Home = () => {
   const sports = useRef();
   const titleRef = useRef();
   const details = useRef();
+  const about = useRef();
 
   useEffect(() => {
-    const sections = [intro, titleRef, sports, projectOne, details];
+    const sections = [intro, about, titleRef, sports, projectOne, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -68,6 +70,12 @@ export const Home = () => {
         sectionRef={intro}
         disciplines={disciplines}
         scrollIndicatorHidden={scrollIndicatorHidden}
+      />
+
+      <About
+        sectionRef={about}
+        visible={visibleSections.includes(about.current)}
+        id="about"
       />
 
       <section ref={titleRef}>

@@ -39,7 +39,6 @@ const ButtonContent = forwardRef(
       target,
       href,
       disabled,
-      onClick,
       ...rest
     },
     ref
@@ -56,7 +55,6 @@ const ButtonContent = forwardRef(
         data-secondary={secondary}
         data-icon={icon}
         href={href}
-        onClick={defaultComponent === 'button' && onClick}
         rel={rel || isExternal ? 'noopener noreferrer' : undefined}
         target={target || isExternal ? '_blank' : undefined}
         disabled={disabled}
