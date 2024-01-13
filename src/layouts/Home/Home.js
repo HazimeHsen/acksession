@@ -14,7 +14,7 @@ import { Heading } from 'components/Heading';
 import { Sports } from './Sports';
 import About from './About';
 
-const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
+const disciplines = ['Competitions', 'Sports', 'Fun', 'Meetups'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -86,7 +86,7 @@ export const Home = () => {
           className={styles.heading}
           data-visible={visibleSections.includes(titleRef.current)}
         >
-          Available Sports
+          Sports Available
         </Heading>
       </section>
 

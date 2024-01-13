@@ -9,13 +9,13 @@ import { Heading } from 'components/Heading';
 const aboutData = [
   {
     id: 1,
-    title: 'About One',
-    description: 'Description for About One. This is just a placeholder text.',
+    title: 'What is GWG8',
+    description: 'Description for this. This is just a placeholder text.',
     imageSrc: '/1.gif',
   },
   {
     id: 2,
-    title: 'About Two',
+    title: 'Our History',
     description: 'Description for About Two. This is just a placeholder text.',
     imageSrc: '/2.gif',
   },
@@ -45,7 +45,7 @@ const About = ({ sectionRef, visible, id }) => {
               className={styles.heading}
               data-visible={visible}
             >
-              Available Sports
+              About Us
             </Heading>
             <div className={styles.container}>
               {aboutData.map(aboutItem => (
