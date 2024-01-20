@@ -18,7 +18,7 @@ export const Sports = () => {
   });
 
   const banner = '/static/hello-world-banner.jpg';
-  const title = 'Available Sports';
+  const title = 'Coming Soon';
   return (
     <article className={styles.post}>
       <Meta title={title} prefix="" description={title} />

@@ -20,14 +20,12 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
-  const projectOne = useRef();
   const sports = useRef();
   const titleRef = useRef();
-  const details = useRef();
   const about = useRef();
 
   useEffect(() => {
-    const sections = [intro, about, titleRef, sports, projectOne, details];
+    const sections = [intro, about, titleRef, sports];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -94,27 +92,6 @@ export const Home = () => {
         id="sport1"
         sectionRef={sports}
         visible={visibleSections.includes(sports.current)}
-      />
-
-      <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        buttonText="View More"
-        buttonLink="/sports"
-        index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        model={{
-          srcSet: [one, one],
-          placeholder: one,
-        }}
-      />
-
-      <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
       />
     </div>
   );

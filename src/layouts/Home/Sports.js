@@ -55,14 +55,21 @@ export const Sports = ({ visible: sectionVisible, sectionRef, ...rest }) => {
   const [showAll, setShowAll] = useState(false);
   const maxItemsToShow = 6;
 
-  const renderDetails = (visible, { name }) => (
+  const renderDetails = (visible, { name, id }) => (
     <div className={styles.details}>
-      <span className={styles.circle} data-visible={visible}>
-        •
-      </span>
-      <Text size="s" className={styles.description} data-visible={visible} as="p">
-        {name}
-      </Text>
+      <Button
+        secondary
+        className={styles.button}
+        data-visible={visible}
+        href={`/sports?id=${id}`}
+      >
+        <span className={styles.circle} data-visible={visible}>
+          •
+        </span>
+        <Text size="s" className={styles.description} data-visible={visible} as="p">
+          {name}
+        </Text>
+      </Button>
     </div>
   );
 

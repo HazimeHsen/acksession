@@ -18,6 +18,7 @@
 }
 
 .circle {
+  margin-right: 10px;
   transition-property: opacity, transform;
   transition-timing-function: var(--bezierFastoutSlowin);
   transition-duration: var(--durationXL);
@@ -127,6 +128,17 @@
   @media (--mediaUseMotion) {
     transform: translate3d(0, var(--spaceL), 0);
   }
+
+  &[data-visible='true'] {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.button {
+  margin-top: 0;
+  opacity: 0;
+  transition: opacity var(--durationXL) ease var(--durationL);
 
   &[data-visible='true'] {
     transform: none;

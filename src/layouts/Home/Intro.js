@@ -22,6 +22,20 @@ export function Intro({ id, sectionRef, disciplines, scrollIndicatorHidden, ...r
   const titleId = `${id}-title`;
   const scrollToHash = useScrollToHash();
 
+  const downloadPDF = (pdfUrl, filename) => {
+    fetch(pdfUrl)
+      .then(response => response.blob())
+      .then(() => {
+        const a = document.createElement('a');
+        a.href = pdfUrl;
+        a.download = filename || 'document.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      })
+      .catch(error => console.error('Error downloading PDF:', error));
+  };
+
   useInterval(
     () => {
       const index = (disciplineIndex + 1) % disciplines.length;
@@ -95,9 +109,36 @@ export function Intro({ id, sectionRef, disciplines, scrollIndicatorHidden, ...r
                 </AnimatePresence>
               </div>
             </h1>
-            <Button iconHoverShift iconEnd="arrowRight">
-              Get In Touch
-            </Button>
+            <div className={styles.buttonParent}>
+              <div className={styles.buttons}>
+                <Button
+                  style={{ width: '100%' }}
+                  onClick={() =>
+                    downloadPDF(
+                      '/GoodWill Games Rule Book.pdf',
+                      'GoodWill Games Rule Book.pdf'
+                    )
+                  }
+                  iconHoverShift
+                  iconEnd="arrowRight"
+                >
+                  Rule book
+                </Button>
+                <Button
+                  style={{ width: '100%' }}
+                  onClick={() =>
+                    downloadPDF(
+                      '/GoodWill Games Welcome Package.pdf',
+                      'GoodWill Games Welcome Package.pdf'
+                    )
+                  }
+                  iconHoverShift
+                  iconEnd="arrowRight"
+                >
+                  Welcome package
+                </Button>
+              </div>
+            </div>
             <RouterLink href="/#project-1">
               <a
                 className={styles.scrollIndicator}

@@ -14,34 +14,34 @@ import { Transition } from 'components/Transition';
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
-  const projectOne = useRef();
-  const projectTwo = useRef();
-  const projectThree = useRef();
-  const projectFour = useRef();
-  const projectFive = useRef();
-  const projectSix = useRef();
-  const projectSeven = useRef();
-  const projectEight = useRef();
-  const projectNine = useRef();
-  const projectTen = useRef();
-  const projectEleven = useRef();
-  const projectTwelve = useRef();
+  // const projectOne = useRef();
+  // const projectTwo = useRef();
+  // const projectThree = useRef();
+  // const projectFour = useRef();
+  // const projectFive = useRef();
+  // const projectSix = useRef();
+  // const projectSeven = useRef();
+  // const projectEight = useRef();
+  // const projectNine = useRef();
+  // const projectTen = useRef();
+  // const projectEleven = useRef();
+  // const projectTwelve = useRef();
   const titleRef = useRef();
 
   useEffect(() => {
     const sections = [
-      projectOne,
-      projectTwo,
-      projectThree,
-      projectFour,
-      projectFive,
-      projectSix,
-      projectSeven,
-      projectEight,
-      projectNine,
-      projectTen,
-      projectEleven,
-      projectTwelve,
+      // projectOne,
+      // projectTwo,
+      // projectThree,
+      // projectFour,
+      // projectFive,
+      // projectSix,
+      // projectSeven,
+      // projectEight,
+      // projectNine,
+      // projectTen,
+      // projectEleven,
+      // projectTwelve,
     ];
 
     const sectionObserver = new IntersectionObserver(
@@ -85,12 +85,12 @@ export const Home = () => {
               className={styles.heading}
               data-visible={visible}
             >
-              Solo Sports
+              {/* Solo Sports */}
             </Heading>
           )}
         </Transition>
       </section>
-      <ProjectSummary
+      {/* <ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
@@ -244,7 +244,7 @@ export const Home = () => {
           srcSet: [six, six],
           placeholder: six,
         }}
-      />
+      /> */}
     </div>
   );
 };

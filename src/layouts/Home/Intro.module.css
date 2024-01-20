@@ -419,3 +419,44 @@
     opacity: 1;
   }
 }
+.buttonParent{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+  padding-top: 30px;
+}
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.buttons{
+  display: flex;
+  gap: 100px;
+  flex-direction: row;
+  justify-content: center;
+    opacity: 0;
+  transform: translateY(20px);
+  animation: buttonFadeIn 0.8s ease-in-out 1.5s forwards;
+  @media (--mediaDesktop) {
+    width: 60%;
+  }
+  @media (--mediaTablet) {
+    width: 80%;
+  }
+  @media (--mediaMobile) {
+    width: 100%;
+  }
+  @media (--mediaMobile) {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+}
