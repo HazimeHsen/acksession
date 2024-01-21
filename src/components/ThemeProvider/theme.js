@@ -123,7 +123,7 @@ const dark = {
 };
 
 const light = {
-  bgLine: '96, 96, 96, 0.518',
+  bgLine: '96, 96, 96, 0.1',
   themeId: 'light',
   lineColor: 'rgba(1, 18, 20), #263030 75%, #4c4d4e 100%',
   rgbBackground: '242 242 242',

@@ -23,21 +23,15 @@ export const Sports = () => {
     <article className={styles.post}>
       <Meta title={title} prefix="" description={title} />
       <Section>
-        {banner && (
-          <div className={styles.banner} ref={imageRef}>
-            <div className={styles.bannerImage}>
-              <Image
-                role="presentation"
-                src={{ src: banner }}
-                placeholder={{ src: `${banner.split('.')[0]}-placeholder.jpg` }}
-                alt=""
-              />
-            </div>
-          </div>
-        )}
         <header className={styles.header}>
           <div className={styles.headerText}>
-            <Heading level={2} as="h1" className={styles.title} aria-label={title}>
+            <Heading
+              level={2}
+              as="h1"
+              align="center"
+              className={styles.title}
+              aria-label={title}
+            >
               {title.split(' ').map((word, index) => (
                 <span className={styles.titleWordWrapper} key={`${word}-${index}`}>
                   <span

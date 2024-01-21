@@ -18,7 +18,7 @@
 }
 
 .circle {
-  margin-right: 10px;
+  margin-right: 5px;
   transition-property: opacity, transform;
   transition-timing-function: var(--bezierFastoutSlowin);
   transition-duration: var(--durationXL);
@@ -85,7 +85,13 @@
   margin-bottom: 100px;
 }
 
-.sportsColumn {}
+.sportsColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
 .divider {
   display: block;
@@ -144,4 +150,8 @@
     transform: none;
     opacity: 1;
   }
+}
+.text{
+  margin-top: 5px;
+  margin-bottom: 20px;
 }

@@ -1,18 +1,12 @@
-import one from 'assets/1.jpg';
-import two from 'assets/2.jpg';
-import three from 'assets/3.jpg';
-import four from 'assets/4.jpg';
-import five from 'assets/5.jpg';
-import six from 'assets/6.jpg';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
-import { Profile } from 'layouts/Home/Profile';
-import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import { Heading } from 'components/Heading';
-import { Sports } from './Sports';
+import { Solo } from './Solo';
 import About from './About';
+import { Team } from './Teams';
+import { Text } from 'components/Text';
 
 const disciplines = ['Competitions', 'Sports', 'Fun', 'Meetups'];
 
@@ -20,12 +14,13 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
-  const sports = useRef();
+  const solo = useRef();
+  const team = useRef();
   const titleRef = useRef();
   const about = useRef();
 
   useEffect(() => {
-    const sections = [intro, about, titleRef, sports];
+    const sections = [intro, about, titleRef, solo, team];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -84,14 +79,31 @@ export const Home = () => {
           className={styles.heading}
           data-visible={visibleSections.includes(titleRef.current)}
         >
-          Sports Available
+          Team Sports{' '}
         </Heading>
       </section>
 
-      <Sports
-        id="sport1"
-        sectionRef={sports}
-        visible={visibleSections.includes(sports.current)}
+      <Team
+        id="team"
+        sectionRef={team}
+        visible={visibleSections.includes(team.current)}
+      />
+
+      <section ref={titleRef}>
+        <Heading
+          level={3}
+          align="center"
+          weight="medium"
+          className={styles.heading}
+          data-visible={visibleSections.includes(titleRef.current)}
+        >
+          Solo Sports
+        </Heading>
+      </section>
+      <Solo
+        id="solo"
+        sectionRef={solo}
+        visible={visibleSections.includes(solo.current)}
       />
     </div>
   );

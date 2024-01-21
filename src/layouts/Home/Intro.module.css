@@ -452,7 +452,7 @@
     width: 80%;
   }
   @media (--mediaMobile) {
-    width: 100%;
+    width: 85%;
   }
   @media (--mediaMobile) {
     flex-direction: column;

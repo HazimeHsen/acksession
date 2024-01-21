@@ -165,3 +165,8 @@
     color: var(--colorTextTitle);
   }
 }
+.text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
