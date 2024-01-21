@@ -4,7 +4,6 @@ import { Transition } from 'components/Transition';
 import { useState } from 'react';
 import styles from './Solo.module.css';
 import { Heading } from 'components/Heading';
-import { Button } from 'components/Button';
 
 const solo1 = [
   { id: 1, name: 'Tennis', description: 'Description for Football (Team Sport)' },
@@ -47,10 +46,8 @@ const solo4 = [
 ];
 export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
   const [focused, setFocused] = useState(false);
-  const [showAll, setShowAll] = useState(false);
-  const maxItemsToShow = 6;
 
-  const renderDetails = (visible, { name, id }) => (
+  const renderDetails = (visible, { name }) => (
     <div className={styles.details}>
       <span className={styles.circle} data-visible={visible}>
         •
@@ -60,10 +57,6 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
       </Text>
     </div>
   );
-
-  const loadMore = () => {
-    setShowAll(true);
-  };
 
   return (
     <div className={styles.mainContainer}>
@@ -90,7 +83,7 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
                     >
                       Playable by solo and due{' '}
                     </Heading>
-                    {solo1.slice(0, showAll ? undefined : maxItemsToShow).map(sport => (
+                    {solo1.map(sport => (
                       <div key={sport.id}>{renderDetails(visible, sport)}</div>
                     ))}
                     <Heading
@@ -101,7 +94,7 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
                     >
                       Swimming
                     </Heading>
-                    {solo2.slice(0, showAll ? undefined : maxItemsToShow).map(sport => (
+                    {solo2.map(sport => (
                       <div key={sport.id}>{renderDetails(visible, sport)}</div>
                     ))}
                     <Heading
@@ -112,7 +105,7 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
                     >
                       Running
                     </Heading>
-                    {solo3.slice(0, showAll ? undefined : maxItemsToShow).map(sport => (
+                    {solo3.map(sport => (
                       <div key={sport.id}>{renderDetails(visible, sport)}</div>
                     ))}
                   </>
@@ -144,7 +137,7 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
                     >
                       Available in solo only{' '}
                     </Heading>
-                    {solo4.slice(0, showAll ? undefined : maxItemsToShow).map(sport => (
+                    {solo4.map(sport => (
                       <div key={sport.id}>{renderDetails(visible, sport)}</div>
                     ))}
                   </>
@@ -154,18 +147,6 @@ export const Solo = ({ visible: sectionVisible, sectionRef, ...rest }) => {
           </Section>
         </div>
       </div>
-      {!showAll && (
-        <div className={styles.button} data-visible={sectionVisible}>
-          <Button
-            className={styles.btn}
-            iconHoverShift
-            onClick={loadMore}
-            iconEnd="arrowRight"
-          >
-            Load More
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

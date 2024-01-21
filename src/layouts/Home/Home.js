@@ -6,7 +6,7 @@ import { Heading } from 'components/Heading';
 import { Solo } from './Solo';
 import About from './About';
 import { Team } from './Teams';
-import { Text } from 'components/Text';
+import { Contact } from './Contact';
 
 const disciplines = ['Competitions', 'Sports', 'Fun', 'Meetups'];
 
@@ -18,9 +18,10 @@ export const Home = () => {
   const team = useRef();
   const titleRef = useRef();
   const about = useRef();
+  const contact = useRef();
 
   useEffect(() => {
-    const sections = [intro, about, titleRef, solo, team];
+    const sections = [intro, about, titleRef, solo, team, contact];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -104,6 +105,11 @@ export const Home = () => {
         id="solo"
         sectionRef={solo}
         visible={visibleSections.includes(solo.current)}
+      />
+      <Contact
+        id="contact"
+        sectionRef={contact}
+        visible={visibleSections.includes(contact.current)}
       />
     </div>
   );
