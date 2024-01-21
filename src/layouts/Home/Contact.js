@@ -13,6 +13,7 @@ import { useFormInput } from 'hooks';
 import { useRef, useState } from 'react';
 import { cssProps, msToNum, numToMs } from 'utils/style';
 import styles from './Contact.module.css';
+import axios from 'axios';
 
 export const Contact = ({ id, sectionRef, visible: sectionVisible, ...rest }) => {
   const errorRef = useRef();
@@ -32,32 +33,16 @@ export const Contact = ({ id, sectionRef, visible: sectionVisible, ...rest }) =>
     try {
       setSending(true);
 
-      const response = await fetch(`/api/message/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email.value,
-          message: message.value,
-        }),
+      const response = await axios.post(`/api/message`, {
+        email: email.value,
+        message: message.value,
       });
-
-      const responseMessage = await response.json();
-
-      const statusError = getStatusError({
-        status: response?.status,
-        errorMessage: responseMessage?.error,
-        fallback: 'There was a problem sending your message',
-      });
-
-      if (statusError) throw new Error(statusError);
 
       setComplete(true);
       setSending(false);
     } catch (error) {
       setSending(false);
-      setStatusError(error);
+      setStatusError(error.message);
     }
   };
 
