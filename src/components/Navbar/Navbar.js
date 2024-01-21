@@ -177,23 +177,15 @@ export const Navbar = () => {
             aria-label="Hamish Williams, Designer"
             onClick={handleMobileNavClick}
           >
-            {themeId === 'dark' ? (
+            {
               <Image
-                src="/static/acksession_logo_white.png"
+                src="/logo.png"
                 objectFit="contain"
                 width={150}
                 height={60}
                 alt="logo"
               />
-            ) : (
-              <Image
-                src="/static/acksession_logo.png"
-                objectFit="contain"
-                width={150}
-                height={60}
-                alt="logo"
-              />
-            )}
+            }
           </a>
         </RouterLink>
         <div className={styles.linksContainer}>
