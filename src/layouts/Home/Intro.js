@@ -112,7 +112,7 @@ export function Intro({ id, sectionRef, disciplines, scrollIndicatorHidden, ...r
             <div className={styles.buttonParent}>
               <div className={styles.buttons}>
                 <Button
-                  style={{ width: '100%' }}
+                  style={{ width: '100%', height: '50px' }}
                   onClick={() =>
                     downloadPDF(
                       '/GoodWill Games Rule Book.pdf',
@@ -125,7 +125,7 @@ export function Intro({ id, sectionRef, disciplines, scrollIndicatorHidden, ...r
                   Rule book
                 </Button>
                 <Button
-                  style={{ width: '100%' }}
+                  style={{ width: '100%', height: '50px' }}
                   onClick={() =>
                     downloadPDF(
                       '/GoodWill Games Welcome Package.pdf',
@@ -136,6 +136,14 @@ export function Intro({ id, sectionRef, disciplines, scrollIndicatorHidden, ...r
                   iconEnd="arrowRight"
                 >
                   Welcome package
+                </Button>
+                <Button
+                  style={{ width: '100%', height: '50px' }}
+                  href="/sports"
+                  iconHoverShift
+                  iconEnd="arrowRight"
+                >
+                  Manitou Menu{' '}
                 </Button>
               </div>
             </div>

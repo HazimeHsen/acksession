@@ -439,7 +439,7 @@
 }
 .buttons{
   display: flex;
-  gap: 100px;
+  gap: 30px;
   flex-direction: row;
   justify-content: center;
     opacity: 0;
@@ -452,7 +452,7 @@
     width: 80%;
   }
   @media (--mediaMobile) {
-    width: 85%;
+    width: 70%;
   }
   @media (--mediaMobile) {
     flex-direction: column;

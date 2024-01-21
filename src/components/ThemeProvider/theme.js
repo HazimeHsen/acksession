@@ -128,7 +128,7 @@ const light = {
   lineColor: 'rgba(1, 18, 20), #263030 75%, #4c4d4e 100%',
   rgbBackground: '242 242 242',
   rgbBackgroundLight: '255 255 255',
-  rgbPrimary: '0 0 0',
+  rgbPrimary: '0 229 255',
   rgbAccent: '0 229 255',
   rgbText: '0 0 0',
   rgbError: '255 0 60',

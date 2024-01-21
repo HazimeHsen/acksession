@@ -16,6 +16,11 @@ const teamSports = [
     name: 'Ultimate Frisbee',
     description: 'Description for Cricket (Team Sport)',
   },
+  {
+    id: 8,
+    name: 'Running',
+    description: 'Description for Cricket (Team Sport)',
+  },
 ];
 
 export const Team = ({ visible: sectionVisible, sectionRef, ...rest }) => {
