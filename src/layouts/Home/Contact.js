@@ -57,7 +57,7 @@ export const Contact = ({ id, sectionRef, visible: sectionVisible, ...rest }) =>
       setSending(false);
     } catch (error) {
       setSending(false);
-      setStatusError(error.message);
+      setStatusError(error);
     }
   };
 
